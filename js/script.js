@@ -345,6 +345,7 @@ console.log(video);
                   rentTime = element.querySelector('.modal__rent-time'),
                   rentChois = rentTime.querySelector('ul'),
                   RP = element.querySelector('.modal__result-price'),
+                  BP = element.querySelector('.modal__product-price'),
                   btnClose = element.querySelector('.btn--modal');
 
             function closeModal(triger){
@@ -365,6 +366,7 @@ console.log(video);
             rentChois.addEventListener('click', (e) =>{
                 rentChois.classList.add('_hide');
                 e.stopPropagation();
+                BP.textContent = constPrice * +e.target.getAttribute('data-rentPrice');
                 rentTime.querySelector('span').textContent = e.target.textContent;
                 RP.textContent = ((constPrice * +e.target.getAttribute('data-rentPrice')) + resultOptionPrice) + "RUB";
             });
